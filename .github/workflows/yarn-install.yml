@@ -20,12 +20,10 @@ jobs:
         node-version: 14
 
     - name: set node version env
-      run: echo $(node --version)
+      run: echo ::set-env name=node-version::$(node --version)
 
     - name: cache node modules
       uses: actions/cache@v2
-      env:
-        node-version: $(node --version)
       with:
         # npm cache files are stored in `~/.npm` on Linux/macOS
         path: |
