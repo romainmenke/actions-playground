@@ -19,6 +19,9 @@ jobs:
       with:
         node-version: 14
 
+    - name: set node version env
+      run: echo $(node --version)
+
     - name: cache node modules
       uses: actions/cache@v2
       env:
