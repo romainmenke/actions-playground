@@ -1,9 +1,6 @@
 name: install
 on:
   push:
-    paths:
-    - '/**/*.js'
-    - '/package.json'
 
 jobs:
 
