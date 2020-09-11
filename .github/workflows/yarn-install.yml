@@ -26,5 +26,4 @@ jobs:
         path: ~/.npm
         key: ${{ runner.os }}-build-cache-node-modules-${{ hashFiles('yarn.lock') }}
     - run: cd ./js && yarn install
-    - run: cd ./js && yarn run postinstall
     - run: ls ~/.npm
