@@ -19,7 +19,6 @@ jobs:
       with:
         node-version: 14
 
-    - run: ls ~/.npm
     - name: cache node modules
       uses: actions/cache@v2
       with:
