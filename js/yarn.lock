@@ -176,6 +176,26 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
+"@financial-times/polyfill-useragent-normaliser@^1.9.0":
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/@financial-times/polyfill-useragent-normaliser/-/polyfill-useragent-normaliser-1.9.0.tgz#212f7861e10f6ce9b8da0e0cf489bd31bfc91806"
+  integrity sha512-jrVQ42tT1RrWyR/hkJlro2HhHZMPGXknKfJyZabe0CYj1c1KIqdS1JhhXEOt0T9ntaRCYq56y2/hAMM6LOU73g==
+  dependencies:
+    "@financial-times/useragent_parser" "^1.5.1"
+    semver "^7.1.1"
+
+"@financial-times/useragent_parser@^1.5.1":
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/@financial-times/useragent_parser/-/useragent_parser-1.5.1.tgz#14ef3e420b7a6617512e02bdd79189b5cb37f65d"
+  integrity sha512-g6MJ5tVszip1wAOq41yk8Z0WJqjfpu3hKaos/IaechYC4RqIn8bTanNR/EGD6oeOdJ9/fTPbQQX5/3ZQwSTXtQ==
+
+"@mrhenry/core-web@^0.3.11":
+  version "0.3.11"
+  resolved "https://registry.yarnpkg.com/@mrhenry/core-web/-/core-web-0.3.11.tgz#5af95599c570f5fc560ac241236451401708dbef"
+  integrity sha512-+GwnGtkxjJ9HOjCfqtQLOWUPtgu/p/h44CAmOPYiL2QhORN5xJToQv/X2cqaxa9NyFgBXaXWjn7IDLLms14Cuw==
+  dependencies:
+    "@financial-times/polyfill-useragent-normaliser" "^1.9.0"
+
 ansi-styles@^3.2.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/ansi-styles/-/ansi-styles-3.2.1.tgz#41fbb20243e50b12be0f04b8dedbf07520ce841d"
@@ -291,6 +311,11 @@ semver@^5.4.1:
   version "5.7.1"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.7.1.tgz#a954f931aeba508d307bbf069eff0c01c96116f7"
   integrity sha512-sauaDf/PZdVgrLTNYHRtpXa1iRiKcaebiKQ1BJdpQlWH2lCvexQdX55snPFyK7QzpudqbCI0qXFfOasHdyNDGQ==
+
+semver@^7.1.1:
+  version "7.3.2"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-7.3.2.tgz#604962b052b81ed0786aae84389ffba70ffd3938"
+  integrity sha512-OrOb32TeeambH6UrhtShmF7CRDqhL6/5XpPNp2DuRH6+9QLw/orhp72j87v8Qa1ScDkvrrBNpZcDejAirJmfXQ==
 
 source-map@^0.5.0:
   version "0.5.7"
