@@ -19,7 +19,7 @@ jobs:
       with:
         node-version: 14
       env:
-        NODE_VERSION: node --version
+        node-version: node --version
 
     - name: cache node modules
       uses: actions/cache@v2
@@ -28,6 +28,6 @@ jobs:
         path: |
           ~/.npm
           js/node_modules
-        key: cache__${{ runner.os }}__node-${{ $NODE_VERSION }}__npm-and-node-modules__${{ hashFiles('js/yarn.lock') }}
+        key: cache__${{ runner.os }}__node-${{ env.node-version }}__npm-and-node-modules__${{ hashFiles('js/yarn.lock') }}
     - run: cd ./js && yarn install
     # - run: ls ~/.npm
