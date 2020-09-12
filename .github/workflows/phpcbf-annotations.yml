@@ -14,10 +14,10 @@ jobs:
       with:
         fetch-depth: 1
 
-    - run: git fetch --depth=1 origin main
-
     - name: test annotations
       run: cat ./.github/data/phpcbf-output.json | node ./.github/bin/phpcbf-to-anotations.js
     
+    - run: git fetch --depth=1 origin main
+
     - name: test file diff
-      run: git --no-pager diff --name-only HEAD main php
+      run: git --no-pager diff --name-only main php
