@@ -1,5 +1,11 @@
 name: install
 on:
+  workflow_dispatch:
+    inputs:
+      run_index:
+        description: 'Run Index'
+        required: true
+        default: false
   push:
 
 jobs:
@@ -31,4 +37,5 @@ jobs:
           js/node_modules
         key: cache__${{ runner.os }}__node-${{ env.node-version }}__npm-and-node-modules__${{ hashFiles('js/yarn.lock') }}
     - run: cd ./js && yarn install
-    # - run: ls ~/.npm
+    - run: node ./js/index.js
+      if: ${{ github.event.inputs.run_index }}
