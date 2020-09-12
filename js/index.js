@@ -1,2 +1,1 @@
-console.log('/js/index.js');
-console.log('##[warning]  1:1  warning  hello!');
+console.log('\n/js/index.js\n##[warning]  1:1  warning  hello!\n');
