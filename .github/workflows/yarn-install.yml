@@ -38,4 +38,4 @@ jobs:
         key: cache__${{ runner.os }}__node-${{ env.node-version }}__npm-and-node-modules__${{ hashFiles('js/yarn.lock') }}
     - run: cd ./js && yarn install
     - run: node ./js/index.js
-      if: ${{ github.event.inputs.run_index }}
+      if: ${{ !github.event.inputs.run_index }}
