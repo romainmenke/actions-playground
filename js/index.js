@@ -7,7 +7,7 @@ function reportGitHubActionAnnotations() {
 		return;
 	}
 
-	let annotation = formatGitHubActionAnnotation('hello!', { file: 'js/index.js', line: 1, cole: 1 });
+	let annotation = formatGitHubActionAnnotation('hello!', { file: 'js/index.js', line: 1, col: 1 });
 	console.log(annotation);
 }
 
