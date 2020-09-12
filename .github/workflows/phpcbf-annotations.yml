@@ -20,4 +20,4 @@ jobs:
     - run: git fetch --depth=1 origin main
 
     - name: test file diff
-      run: git --no-pager diff --name-only main php
+      run: git --no-pager diff --name-only origin/main -- php
