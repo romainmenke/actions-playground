@@ -16,3 +16,6 @@ jobs:
 
     - name: test annotations
       run: cat ./.github/data/phpcbf-output.json | node ./.github/bin/phpcbf-to-anotations.js
+    
+    - name: test file diff
+      run: git --no-pager diff --name-only HEAD main php
