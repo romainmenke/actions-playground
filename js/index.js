@@ -1,1 +1,2 @@
-console.log('/js/index.js:1:1: error - Dummy Error');
+console.log('/js/index.js');
+console.log('##[warning]  1:1  warning  hello!');
