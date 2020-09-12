@@ -4,8 +4,8 @@ on:
     inputs:
       run_index:
         description: 'Run Index'
-        required: true
-        default: false
+        required: false
+        default: true
   push:
 
 jobs:
