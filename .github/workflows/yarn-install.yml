@@ -38,7 +38,7 @@ jobs:
           ~/.npm
           js/node_modules
           ${{ env.yarn-cache-dir }}
-        key: cache__${{ runner.os }}__node-${{ env.node-version }}__npm-and-node-modules__${{ hashFiles('js/yarn.lock') }}
+        key: cache__${GITHUB_SHA}__${{ runner.os }}__node-${{ env.node-version }}__npm-and-node-modules__${{ hashFiles('js/yarn.lock') }}
     - run: cd ./js && yarn install
     - run: node ./js/index.js
       if: ${{ github.event.inputs.run_index }}
