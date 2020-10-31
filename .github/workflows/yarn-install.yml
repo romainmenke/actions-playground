@@ -30,6 +30,7 @@ jobs:
           echo "node-version=$(node --version)" >> $GITHUB_ENV
           echo "yarn-cache-dir=$(yarn cache dir)" >> $GITHUB_ENV
 
+    - run: echo "$GITHUB_SHA"
     - name: cache node modules
       uses: actions/cache@v2
       with:
