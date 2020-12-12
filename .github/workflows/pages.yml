@@ -30,4 +30,4 @@ jobs:
         cp $tmpfile ./index.html
         git add .
         git commit -m "update pages"
-        git push
+        git push --set-upstream origin pages
