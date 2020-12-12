@@ -24,7 +24,7 @@ jobs:
         tmpfile=$(mktemp /tmp/index.XXXXXXXXXX)
         echo "hello!" >> $tmpfile
         git checkout pages 2>/dev/null || git checkout -b pages
-        rm ./index.html
+        rm -f ./index.html
         cp $tmpfile ./index.html
         git add .
         git commit -m "update pages"
