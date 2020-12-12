@@ -30,8 +30,8 @@ jobs:
         # Checkout pages branches
         git checkout pages 2>/dev/null || git checkout -b pages
         # Clean pages branch
-        git ls-tree --name-only -d -r -z HEAD | sort -rz | xargs -0 rmdir
         git ls-files -z | xargs -0 rm -f
+        git ls-tree --name-only -d -r -z HEAD | sort -rz | xargs -0 rmdir
         # Copy contents
         cp $tmpfile ./index.html
         # Submit
