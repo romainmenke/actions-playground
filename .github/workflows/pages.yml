@@ -31,7 +31,7 @@ jobs:
         git checkout pages 2>/dev/null || git checkout -b pages
         # Clean pages branch
         git ls-files -z | xargs -0 rm -f
-        git ls-tree --name-only -d -r -z HEAD | sort -rz | xargs -0 rmdir
+        git ls-tree --name-only -d -r -z HEAD | sort -rz | xargs -0 rmdir || true
         # Copy contents
         mkdir ./docs
         cp $tmpfile ./docs/index.html
