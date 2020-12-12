@@ -23,6 +23,7 @@ jobs:
         tmpfile=$(mktemp /tmp/index.XXXXXXXXXX)
         echo "hello!" >> $tmpfile
         git checkout pages 2>/dev/null || git checkout -b pages
+        git pull
         rm ./index.html
         cp $tmpfile ./index.html
         git add .
