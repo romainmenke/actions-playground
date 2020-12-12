@@ -1,0 +1,31 @@
+{
+	"totals": {
+		"errors": 4,
+		"warnings": 1,
+		"fixable": 3
+	},
+	"files": {
+		"\/php\/index.php": {
+			"errors": 1,
+			"warnings": 1,
+			"messages": [{
+					"message": "Missing file doc comment",
+					"source": "PEAR.Commenting.FileComment.Missing",
+					"severity": 5,
+					"type": "ERROR",
+					"line": 2,
+					"column": 1,
+					"fixable": false
+				},
+				{
+					"message": "Hello!",
+					"severity": 5,
+					"type": "WARNING",
+					"line": 3,
+					"column": 1,
+					"fixable": true
+				}
+			]
+		}
+	}
+}
