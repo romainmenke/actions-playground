@@ -20,12 +20,12 @@ jobs:
           echo "commit-sha=$(echo ${GITHUB_SHA})" >> $GITHUB_ENV
 
     - name: check out
-      uses: actions/checkout@v2.3.2
+      uses: actions/checkout@v2.3.4
       with:
         fetch-depth: 1
 
     - name: setup node
-      uses: actions/setup-node@v2.1.1
+      uses: actions/setup-node@v2.1.3
       with:
         node-version: 14
 
