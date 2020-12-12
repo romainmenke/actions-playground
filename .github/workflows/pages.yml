@@ -1,0 +1,30 @@
+name: pages
+on:
+  push:
+    - 'main'
+
+jobs:
+
+  fmt:
+    name: install
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: check out
+      uses: actions/checkout@v2.3.2
+      with:
+        fetch-depth: 1
+
+    - run: |
+        git fetch --depth=1 origin pages || true
+
+    - name: create pages content
+      run: |
+        tmpfile=$(mktemp /tmp/index.XXXXXXXXXX)
+        echo "hello!" >> $tmpfile
+        git checkout pages 2>/dev/null || git checkout -b pages
+        rm ./index.html
+        cp $tmpfile ./index.html
+        git add .
+        git commit -m "update pages"
+        git push
