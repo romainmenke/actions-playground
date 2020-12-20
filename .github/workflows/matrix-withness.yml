@@ -28,5 +28,5 @@ jobs:
 
     - name: work ${{ matrix.name }}
       id: work
-      run: echo "${{ matrix.name }}" > work.txt
+      run: exit 1
       if: steps.witness.outputs.cache-hit != 'true'
