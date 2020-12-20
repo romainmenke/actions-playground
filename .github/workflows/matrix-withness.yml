@@ -1,0 +1,36 @@
+name: Test Polyfills 
+on:
+  push:
+
+jobs:
+  work:
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 1
+      fail-fast: false
+      matrix:
+        name: [alpha, beta]
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: env
+      run: echo "commit-sha=$(echo ${GITHUB_SHA})" >> $GITHUB_ENV
+
+    - name: work ${{ matrix.name }}
+      id: work
+      run: echo "${{ matrix.name }}" > work.txt
+      if: steps.witness.outputs.cache-hit != 'true'
+
+    - run : echo "${{ matrix.name }}" > $GITHUB_WORKSPACE/witness-${{ matrix.name }}
+      if: steps.work.outcome=='success'
+
+    - name: record ${{ matrix.name }} witness
+      if: steps.work.outcome=='success'
+      id: witness
+      uses: actions/cache@v2
+      with:
+        path: $GITHUB_WORKSPACE/witness-${{ matrix.name }}
+        key: witness--${{ matrix.name }}--${{ env.commit-sha }}
+
+    - run : cat $GITHUB_WORKSPACE/witness-${{ matrix.name }}
