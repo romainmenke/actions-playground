@@ -1,4 +1,4 @@
-name: Test Polyfills 
+name: matrix with witnesses
 on:
   push:
 
@@ -34,3 +34,30 @@ jobs:
         key: witness--${{ matrix.name }}--${{ env.commit-sha }}
 
     - run : cat $GITHUB_WORKSPACE/witness-${{ matrix.name }}
+
+  delta:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: env
+      run: echo "commit-sha=$(echo ${GITHUB_SHA})" >> $GITHUB_ENV
+
+    - name: work delta
+      id: work-delta
+      run: echo "delta" > work.txt
+      if: steps.witness.outputs.cache-hit != 'true'
+
+    - run : echo "delta" > $GITHUB_WORKSPACE/witness-delta
+      if: steps.work-delta.outcome=='success'
+
+    - name: record delta witness
+      if: steps.work-delta.outcome=='success'
+      id: witness
+      uses: actions/cache@v2
+      with:
+        path: $GITHUB_WORKSPACE/witness-delta
+        key: witness--delta--${{ env.commit-sha }}
+
+    - run : cat $GITHUB_WORKSPACE/witness-delta
