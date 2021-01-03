@@ -16,7 +16,5 @@ jobs:
 
     - name: install
       run: |
-        cd go/hello-world && go install ./...
-        echo $GOPATH
-        echo $GOBIN
-        echo $GOROOT
+        cd go/hello-world && go build
+        actions-playground-go-hello-world
