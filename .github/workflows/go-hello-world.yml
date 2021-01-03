@@ -17,4 +17,4 @@ jobs:
     - name: install
       run: |
         cd go/hello-world && go build
-        actions-playground-go-hello-world
+        ./actions-playground-go-hello-world
