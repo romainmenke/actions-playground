@@ -1,0 +1,22 @@
+name: go hello world
+on:
+  push:
+
+jobs:
+
+  hello-world:
+    name: hello-world
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: check out
+      uses: actions/checkout@v2.3.4
+      with:
+        fetch-depth: 1
+
+    - name: install
+      run: |
+        cd go/hello-world && go install ./...
+        echo $GOPATH
+        echo $GOBIN
+        echo $GOROOT
