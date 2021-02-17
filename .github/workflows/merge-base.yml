@@ -16,4 +16,4 @@ jobs:
 
     - name: run
       run: |
-        git diff --name-only <notMainDev> $(git merge-base <notMainDev> <mainDev>)
+        git diff --name-only $GITHUB_REF $(git merge-base $GITHUB_REF main)
