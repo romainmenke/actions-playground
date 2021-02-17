@@ -18,4 +18,4 @@ jobs:
 
     - name: run
       run: |
-        git diff --name-only $GITHUB_REF $(git merge-base $GITHUB_REF origin/main)
+        echo $(git diff --name-only $GITHUB_REF $(git merge-base $GITHUB_REF origin/main))
