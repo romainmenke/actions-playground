@@ -14,6 +14,8 @@ jobs:
       with:
         fetch-depth: 1
 
+    - run: git fetch --depth=1 origin main
+
     - name: run
       run: |
         git diff --name-only $GITHUB_REF $(git merge-base $GITHUB_REF origin/main)
