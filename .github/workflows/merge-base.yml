@@ -1,0 +1,19 @@
+name: merge base
+on:
+  push:
+
+jobs:
+
+  merge-base:
+    name: merge base
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: check out
+      uses: actions/checkout@v2.3.4
+      with:
+        fetch-depth: 1
+
+    - name: run
+      run: |
+        git diff --name-only <notMainDev> $(git merge-base <notMainDev> <mainDev>)
