@@ -1,4 +1,4 @@
-name: merge base
+name: not on main
 on:
   push:
     branches:
@@ -8,7 +8,7 @@ on:
 jobs:
 
   merge-base:
-    name: merge base
+    name: not on main
     runs-on: ubuntu-latest
     steps:
 
