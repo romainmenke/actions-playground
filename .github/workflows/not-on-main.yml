@@ -1,0 +1,18 @@
+name: not on main
+on:
+  push:
+    branches:
+    - '*/*'
+    - '!master'
+    - '!main'
+
+jobs:
+
+  merge-base:
+    name: not on main
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: run
+      run: |
+        echo "hello!"
