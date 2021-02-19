@@ -2,6 +2,7 @@ name: not on main
 on:
   push:
     branches:
+    - '*/*'
     - '!master'
     - '!main'
 
