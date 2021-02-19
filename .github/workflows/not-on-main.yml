@@ -1,0 +1,17 @@
+name: merge base
+on:
+  push:
+    branches:
+    - '!master'
+    - '!main'
+
+jobs:
+
+  merge-base:
+    name: merge base
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: run
+      run: |
+        echo "hello!"
