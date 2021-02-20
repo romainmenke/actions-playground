@@ -12,11 +12,15 @@ jobs:
     - name: check out
       uses: actions/checkout@v2.3.4
       with:
-        fetch-depth: 1
+        fetch-depth: 0
 
-    - run: git fetch --depth=1 origin main
+    - run: git fetch origin main
 
     - name: run
       run: |
         # TODO
-        echo $(git diff --name-only $GITHUB_REF $(git merge-base $GITHUB_REF origin/main))
+        echo "$GITHUB_REF"
+        echo "$(git status)"
+        echo "$(git --no-pager branch)"
+        echo "$(git merge-base $GITHUB_REF origin/main)"
+        echo "$(git diff --name-only $GITHUB_REF $(git merge-base $GITHUB_REF origin/main))"
