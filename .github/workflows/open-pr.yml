@@ -36,9 +36,9 @@ jobs:
           # push
           git push --set-upstream origin $branch_name
           # open pr
-          curl \
+          curl --fail \
           -X POST \
           -H "Accept: application/vnd.github.v3+json" \
           https://api.github.com/repos/romainmenke/actions-playground/pulls \
           -H "Authorization: token $GITHUB_TOKEN" \
-          -d '{"head":"head","base":"main"}'
+          -d "{\"head\":\"$branch_name\",\"base\":\"main\"}"
