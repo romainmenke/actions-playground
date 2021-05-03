@@ -17,7 +17,7 @@ jobs:
     - name: setup node
       uses: actions/setup-node@v2.1.4
       with:
-        node-version: 14
+        node-version: 16
 
     - name: commit and open pr
       env:

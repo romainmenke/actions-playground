@@ -5,7 +5,7 @@ on:
       run_index:
         description: 'Run Index'
         required: false
-        default: true
+        default: "true"
   push:
 
 jobs:
@@ -27,7 +27,7 @@ jobs:
     - name: setup node
       uses: actions/setup-node@v2.1.4
       with:
-        node-version: 14
+        node-version: 16
 
     - name: set node version env
       run: |
