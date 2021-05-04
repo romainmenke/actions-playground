@@ -1,0 +1,12 @@
+{
+    "name": "romainmenke/actions-playground",
+    "authors": [
+        {
+            "name": "romainmenke",
+            "email": "romainmenke@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.2.5"
+    }
+}
