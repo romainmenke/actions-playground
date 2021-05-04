@@ -14,8 +14,6 @@ jobs:
       with:
         fetch-depth: 1
 
-    - run: php --version
-
     - name: test annotations
       run: cat ./.github/data/phpcbf-output.json | node ./.github/bin/phpcbf-to-anotations.js
     
