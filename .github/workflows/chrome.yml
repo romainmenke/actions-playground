@@ -21,4 +21,4 @@ jobs:
     - run: |
           cd ./puppeteer
           npm install
-          node .test.js
+          node ./test.js
