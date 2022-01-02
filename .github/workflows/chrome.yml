@@ -18,5 +18,7 @@ jobs:
       with:
         node-version: 16
 
-    - run: cd ./puppeteer && npm install
-    - run: node ./test.js
+    - run: |
+          cd ./puppeteer
+          npm install
+          node .test.js
