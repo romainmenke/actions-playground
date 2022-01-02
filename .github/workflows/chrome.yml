@@ -1,0 +1,22 @@
+name: chrome
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: install
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: check out
+      uses: actions/checkout@v2.4.0
+      with:
+        fetch-depth: 1
+
+    - name: setup node
+      uses: actions/setup-node@v2.5.1
+      with:
+        node-version: 16
+
+    - run: cd ./puppeteer && npm install
+    - run: node ./test.js

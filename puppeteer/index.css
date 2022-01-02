@@ -1,0 +1,24 @@
+div,
+main {
+	color: grey
+}
+
+.subject:has(> .child) {
+	color: red
+}
+
+.subject:has(.descendant) {
+	color: green
+}
+
+.subject:has([attrname=descendant]) {
+	color: blue
+}
+
+.subject:has(#div_descendant) {
+	color: yellow
+}
+
+.subject:has(descendant) {
+	color: yellowgreen
+}
