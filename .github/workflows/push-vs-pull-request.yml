@@ -1,0 +1,13 @@
+name: push vs. pull request
+on:
+  push:
+    branches:
+    - 'main'
+  pull_request:
+
+jobs:
+  push-vs-pull-request:
+    name: push vs. pull request
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo "push vs. pull request"
