@@ -18,3 +18,6 @@ jobs:
       run: |
         cd go/hello-world && go build
         ./actions-playground-go-hello-world
+
+    - name: Adding markdown
+      run: echo '### Hello world! :rocket:' >> $GITHUB_STEP_SUMMARY
