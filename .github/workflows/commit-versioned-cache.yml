@@ -21,14 +21,14 @@ jobs:
     - name: restore
       uses: actions/cache@v3.0.3
       with:
-        path: $GITHUB_WORKSPACE/foo.txt
+        path: foo.txt
         key: cache-key-prefix--${{ env.commit-sha }}
         restore-keys: ${{ env.commit-log }}
 
     - name: before
-      run: cat $GITHUB_WORKSPACE/foo.txt || echo 'file does not exist yet'
+      run: cat foo.txt || echo 'file does not exist yet'
 
     - name: after
       run: |
-        echo "${GITHUB_SHA}" > $GITHUB_WORKSPACE/foo.txt
-        echo "hello" >> $GITHUB_WORKSPACE/foo.txt
+        echo "${GITHUB_SHA}" > foo.txt
+        echo "hello" >> foo.txt
