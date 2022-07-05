@@ -29,4 +29,6 @@ jobs:
       run: cat $GITHUB_WORKSPACE/foo.txt || echo 'file does not exist yet'
 
     - name: after
-      run: echo "${GITHUB_SHA}" > $GITHUB_WORKSPACE/foo.txt
+      run: |
+        echo "${GITHUB_SHA}" > foo.txt
+        echo "hello" >> foo.txt
