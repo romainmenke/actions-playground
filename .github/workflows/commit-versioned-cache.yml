@@ -1,0 +1,30 @@
+name: commit versioned cache
+on:
+  push:
+
+jobs:
+  work:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3.0.2
+      with:
+        fetch-depth: 30
+
+    - name: env
+      run: |
+        echo "commit-log=$(git --no-pager log -30 --pretty=format:'cache-key-prefix--%H')" >> $GITHUB_ENV
+        echo "commit-sha=$(echo ${GITHUB_SHA})" >> $GITHUB_ENV
+
+    - name: before
+      run: cat $GITHUB_WORKSPACE/foo.txt
+
+    - name: restore
+      uses: actions/cache@v3.0.3
+      with:
+        path: $GITHUB_WORKSPACE/foo.txt
+        key: cache-key-prefix--${{ env.commit-sha }}
+        restore-keys: ${{ env.commit-log }}
+
+    - name: after
+      run: echo "${GITHUB_SHA}" > $GITHUB_WORKSPACE/foo.txt
