@@ -5,6 +5,11 @@ on:
 jobs:
   work:
     runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 1
+      fail-fast: false
+      matrix:
+        name: [alpha, beta]
 
     steps:
     - uses: actions/checkout@v3.0.2
@@ -14,7 +19,7 @@ jobs:
     - name: env
       run: |
         echo 'commit-log<<EOF' >> $GITHUB_ENV
-        echo "$(git --no-pager log -9 --skip 1 --pretty=format:'cache-key-prefix--%H')" >> $GITHUB_ENV
+        echo "$(git --no-pager log -9 --skip 1 --pretty=format:'cache-key-prefix-${{ matrix.name }}--%H')" >> $GITHUB_ENV
         echo 'EOF' >> $GITHUB_ENV
         echo "commit-sha=$(echo ${GITHUB_SHA})" >> $GITHUB_ENV
 
@@ -22,7 +27,7 @@ jobs:
       uses: actions/cache@v3.0.3
       with:
         path: foo.txt
-        key: cache-key-prefix--${{ env.commit-sha }}
+        key: cache-key-prefix-${{ matrix.name }}--${{ env.commit-sha }}
         restore-keys: ${{ env.commit-log }}
 
     - name: before
