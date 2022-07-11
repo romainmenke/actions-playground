@@ -18,13 +18,13 @@ jobs:
     - run: git fetch
 
     - name: GITHUB_REF
-      run: echo $(git --no-pager diff --name-only $GITHUB_REF $(git merge-base $GITHUB_REF main))
+      run: git --no-pager diff --name-only $GITHUB_REF $(git merge-base $GITHUB_REF main)
       continue-on-error: true
 
     - name: HEAD merge base
-      run: echo $(git merge-base HEAD origin/main)
+      run: git merge-base HEAD origin/main
       continue-on-error: true
 
     - name: HEAD diff
-      run: echo $(git --no-pager diff --name-only HEAD $(git merge-base HEAD origin/main))
+      run: git --no-pager diff --name-only HEAD $(git merge-base HEAD origin/main)
       continue-on-error: true
