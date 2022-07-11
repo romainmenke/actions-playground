@@ -19,7 +19,7 @@ jobs:
 
     - run: git --no-pager diff --name-only origin/main
 
-    - run: git show-branch --merge-base
+    - run: git merge-base --fork-point origin/main
 
     - name: GITHUB_REF diff
       run: git --no-pager diff --name-only $GITHUB_REF $(git show-branch --merge-base)
