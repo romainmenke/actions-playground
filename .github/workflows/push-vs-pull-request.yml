@@ -19,12 +19,12 @@ jobs:
 
     - run: git --no-pager diff --name-only origin/main
 
-    - run: git merge-base --fork-point origin/main
+    - run: git merge-base --fork-point HEAD origin/main
 
     - name: GITHUB_REF diff
-      run: git --no-pager diff --name-only $GITHUB_REF $(git show-branch --merge-base)
+      run: git --no-pager diff --name-only $GITHUB_REF $(git merge-base --fork-point HEAD origin/main)
       continue-on-error: true
 
     - name: HEAD diff
-      run: git --no-pager diff --name-only HEAD $(git show-branch --merge-base)
+      run: git --no-pager diff --name-only HEAD $(git merge-base --fork-point HEAD origin/main)
       continue-on-error: true
