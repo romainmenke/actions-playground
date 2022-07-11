@@ -11,3 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - run: echo "push vs. pull request"
+
+    - name: GITHUB_REF
+    - run: git --no-pager diff --name-only $GITHUB_REF $(git merge-base $GITHUB_REF master)
+      continue-on-error: true
