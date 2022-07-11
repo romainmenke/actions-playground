@@ -17,14 +17,14 @@ jobs:
     - name: check out
       uses: actions/checkout@v3.0.2
       with:
-        fetch-depth: 1
+        fetch-depth: 50
 
-    - run: git fetch origin $GITHUB_BASE_REF
+    # - run: git fetch origin $GITHUB_BASE_REF
 
     - run: git --no-pager diff --name-only origin/main
 
     - run: echo $GITHUB_BASE_REF
-    - run: git merge-base --fork-point origin/$GITHUB_BASE_REF
+    - run: git merge-base --fork-point origin/main
 
     - name: GITHUB_REF diff
       run: git --no-pager diff --name-only $GITHUB_REF $(git merge-base --fork-point HEAD origin/main)
