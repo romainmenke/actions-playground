@@ -22,3 +22,7 @@ jobs:
     - name: GITHUB_REF
       run: git --no-pager diff --name-only $GITHUB_REF $(git merge-base $GITHUB_REF main)
       continue-on-error: true
+
+    - name: HEAD
+      run: git --no-pager diff --name-only HEAD $(git merge-base HEAD main)
+      continue-on-error: true
