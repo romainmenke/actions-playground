@@ -17,6 +17,8 @@ jobs:
 
     - run: git fetch
 
+    - run: git --no-pager diff --name-only origin/main
+
     - name: GITHUB_REF merge base
       run: git merge-base $GITHUB_REF origin/main
       continue-on-error: true
