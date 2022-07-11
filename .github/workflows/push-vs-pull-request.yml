@@ -19,7 +19,7 @@ jobs:
 
     - run: git --no-pager diff --name-only origin/main
 
-    - run: git merge-base --fork-point HEAD origin/main
+    - run: bash .github/bin/merge-base.sh
 
     - name: GITHUB_REF diff
       run: git --no-pager diff --name-only $GITHUB_REF $(git merge-base --fork-point HEAD origin/main)

@@ -1,0 +1,1 @@
+echo $(git merge-base --fork-point HEAD origin/main)
