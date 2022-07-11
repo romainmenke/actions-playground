@@ -22,7 +22,7 @@ jobs:
       continue-on-error: true
 
     - name: HEAD merge base
-      run: git merge-base HEAD origin/main
+      run: git --no-pager status
       continue-on-error: true
 
     - name: HEAD diff
