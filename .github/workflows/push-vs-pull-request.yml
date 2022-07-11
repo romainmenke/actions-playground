@@ -13,5 +13,5 @@ jobs:
     - run: echo "push vs. pull request"
 
     - name: GITHUB_REF
-    - run: git --no-pager diff --name-only $GITHUB_REF $(git merge-base $GITHUB_REF master)
+      run: git --no-pager diff --name-only $GITHUB_REF $(git merge-base $GITHUB_REF master)
       continue-on-error: true
