@@ -24,5 +24,5 @@ jobs:
       continue-on-error: true
 
     - name: HEAD
-      run: git --no-pager diff --name-only HEAD $(git merge-base HEAD main)
+      run: git --no-pager diff --name-only HEAD $(git merge-base HEAD origin/main)
       continue-on-error: true
