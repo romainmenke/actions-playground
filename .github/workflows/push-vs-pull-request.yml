@@ -19,7 +19,7 @@ jobs:
       with:
         fetch-depth: 50
 
-    # - run: git fetch origin $GITHUB_BASE_REF
+    - run: git fetch origin $GITHUB_BASE_REF
 
     - run: git --no-pager diff --name-only origin/main
 
