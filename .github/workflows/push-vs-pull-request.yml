@@ -1,8 +1,6 @@
 name: push vs. pull request
 on:
   push:
-    branches:
-    - 'main'
   pull_request:
 
 jobs:
@@ -23,6 +21,10 @@ jobs:
       run: echo $(git --no-pager diff --name-only $GITHUB_REF $(git merge-base $GITHUB_REF main))
       continue-on-error: true
 
-    - name: HEAD
+    - name: HEAD merge base
+      run: echo $(git merge-base HEAD origin/main)
+      continue-on-error: true
+
+    - name: HEAD diff
       run: echo $(git --no-pager diff --name-only HEAD $(git merge-base HEAD origin/main))
       continue-on-error: true
