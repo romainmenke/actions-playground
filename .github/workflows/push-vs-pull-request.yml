@@ -12,6 +12,13 @@ jobs:
     steps:
     - run: echo "push vs. pull request"
 
+    - name: check out
+      uses: actions/checkout@v3.0.2
+      with:
+        fetch-depth: 1
+
+    - run: git fetch
+
     - name: GITHUB_REF
-      run: git --no-pager diff --name-only $GITHUB_REF $(git merge-base $GITHUB_REF master)
+      run: git --no-pager diff --name-only $GITHUB_REF $(git merge-base $GITHUB_REF main)
       continue-on-error: true
