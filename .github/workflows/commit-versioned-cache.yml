@@ -1,0 +1,39 @@
+name: commit versioned cache
+on:
+  push:
+
+jobs:
+  work:
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 1
+      fail-fast: false
+      matrix:
+        name: [alpha, beta]
+
+    steps:
+    - uses: actions/checkout@v3.0.2
+      with:
+        fetch-depth: 10
+
+    - name: env
+      run: |
+        echo 'commit-log<<EOF' >> $GITHUB_ENV
+        echo "$(git --no-pager log -9 --skip 1 --pretty=format:'cache-key-prefix-${{ matrix.name }}--%H')" >> $GITHUB_ENV
+        echo 'EOF' >> $GITHUB_ENV
+        echo "commit-sha=$(echo ${GITHUB_SHA})" >> $GITHUB_ENV
+
+    - name: restore
+      uses: actions/cache@v3.0.3
+      with:
+        path: foo.txt
+        key: cache-key-prefix-${{ matrix.name }}--${{ env.commit-sha }}
+        restore-keys: ${{ env.commit-log }}
+
+    - name: before
+      run: cat foo.txt || echo 'file does not exist yet'
+
+    - name: after
+      run: |
+        echo "${GITHUB_SHA}" > foo.txt
+        echo "hello" >> foo.txt
