@@ -23,6 +23,7 @@ jobs:
 
     - run: git --no-pager diff --name-only origin/main
 
+    - run: echo $GITHUB_BASE_REF
     - run: git merge-base --fork-point origin/$GITHUB_BASE_REF
 
     - name: GITHUB_REF diff
