@@ -20,7 +20,7 @@ jobs:
           echo "commit-sha=$(echo ${GITHUB_SHA})" >> $GITHUB_ENV
 
     - name: check out
-      uses: actions/checkout@v3.2.0
+      uses: actions/checkout@v3.3.0
       with:
         fetch-depth: 1
 
