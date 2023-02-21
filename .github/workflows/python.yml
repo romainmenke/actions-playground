@@ -1,0 +1,14 @@
+name: python
+on:
+  push:
+
+jobs:
+
+  hello-world:
+    name: hello-world
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: install
+      run: |
+        which python
