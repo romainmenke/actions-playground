@@ -13,4 +13,5 @@ jobs:
       run: |
         which python;
         python --version;
-        which python3;
+        which python2;
+        python2 --version;
