@@ -11,4 +11,6 @@ jobs:
 
     - name: install
       run: |
-        which python
+        which python;
+        python version;
+        which python3;
